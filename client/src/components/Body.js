@@ -9,7 +9,7 @@ function Body({setIsLoggedIn, setUser, user}) {
 
     return (
         <div className="App">
-            {/* <a href='/FunList'><button>Fun List</button></a> */}
+           {/* To start added in all other routes */}
             <Switch>
                 <Route exact path="/">
                     <Home />

@@ -74,3 +74,355 @@ span {
   color: white;
 }
 
+.welcome, .discus-title {
+  text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.welcome-2, .discus-title{
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-size: 68px;
+  line-height: 11.9vh;
+
+  color: #008080;
+}
+
+.icon-img {
+  height: 75px;
+  width: 75px;
+  float: left;
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 2px solid #004C4C;
+}
+
+.icon-img-small {
+  height: 25px;
+  width: 25px;
+  float: left;
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 1px solid #004C4C;
+  margin-right: 1%;
+}
+
+.icon-img-profile {
+  height: 25px;
+  width: 25px;
+  /* float: right;   */
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 1px solid #004C4C;
+  margin-right: 1%;
+
+}
+
+.p-icon-img {
+  margin-right: -10%;
+}
+
+.discus-title .icon{
+  margin-left: -10%;;
+}
+
+li {
+  width: auto;
+  float: left;
+  display: block
+}
+
+.icon {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 52px;
+  line-height: 75px;
+  float: left;
+  background-color: #008080;
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 2px solid #004C4C;
+
+  color: white;
+}
+
+.discus-page {
+  margin-left: -10%;
+  margin-right: -10%;
+}
+
+.small-icon {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 1%;
+  background-color: #008080;
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 2px solid #004C4C;
+
+  color: white;
+}
+
+.small-icon:hover, .icon:hover {
+  background: #66B2B2;
+  color: white;
+}
+
+.board {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 100px;
+  text-align: center;
+  color: #008080;
+}
+
+h2.board, h4.board{
+  text-align: left;
+  margin-left: 2%;
+}
+
+.profile-title {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+  margin-left: 3%;
+  text-decoration-line: underline;
+  border: 2px #004C4C;
+  color: #206A73;
+}
+
+.title {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+  text-decoration-line: underline;
+  border: 2px #004C4C;
+  color: #206A73;
+}
+
+.title:hover {
+  color: #008080;
+}
+
+.txt {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 250;
+  font-size: 20px;
+  line-height: 25px;
+
+  color: #004C4C;
+}
+
+.discus-bttn{
+  float: right;
+}
+
+.bttn2 {
+  background: #008080;
+  color: white;
+  border-radius: 25px;
+  border: 2px solid #004C4C
+}
+
+.bttn2:hover {
+  background: #66B2B2;
+  color: #004C4C;
+  border: 2px solid #004C4C
+}
+
+.bttn2:focus {
+  background: #66B2B2;
+  color: #004C4C;
+  border: 2px solid #004C4C
+}
+
+.form-title {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 25px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+
+  color: #004C4C;
+}
+
+.form-title2 {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 25px;
+  margin-top: 4vh;
+  margin-left: 26vw;
+
+  display: flex;
+  align-items: center;
+
+  color: #008080;
+}
+
+li {
+  list-style-type: none;
+}
+
+.outside {
+  padding: 4.6vh 3.5vw 6.6vh 3.5vw;
+  background: #66B2B2D8;
+  border-radius: 25px;
+}
+
+.inside {
+  padding: 4.6vh 3.5vw 6.6vh 3.5vw;
+  background: #B2D8D8;
+  border-radius: 25px;
+}
+
+.form {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.75vw;
+  line-height: 1.5vw;
+  text-align: left;
+  color: #206A73;
+}
+
+.label {
+  display: inline-block;
+  width: 350px;
+  text-align: left;
+}
+
+div.col-sm-10.signup-input {
+  padding-left: 25px;
+  width: 550px;
+}
+
+.input {
+  height: 60px;
+  border-radius: 15px;
+  width: 31.6vw;
+}
+
+.right {
+  align-items: right;
+}
+
+.submit {
+  /* padding: 0px 0px 0px 270px; */
+  text-align: center;
+}
+
+.signup-link {
+  padding-top: 20px;
+}
+
+.form-type-title {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 25px;
+  text-decoration-line: underline;
+
+  color: #206A73;
+}
+
+.info-alert {
+  height: 100px;
+  padding-top: 5px;
+  border: 1px solid #006666;
+  box-shadow: 0px 4px 4px #004C4C;
+  border-radius: 10px;
+
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 25px;
+
+  color: #004C4C;
+}
+
+.info {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+}
+
+.edit-btn  {
+  padding: 15px;
+  margin-top: 15%;
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 25px;
+}
+
+div.edit-password {
+  background: #66B2B2;
+  border-radius: 15px;
+}
+
+.profile-edit-line {
+  padding-right: 1%;
+  margin-bottom: -16px;
+}
+
+.edit-label {
+  font-family: 'Quantico', sans-serif;
+  width: 380px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 25px;
+  text-align: left;
+
+  color: #004C4C;
+}
+
+.edit-bttn {
+  padding-right: 350px;
+}
+
+.password-bttn {
+  height: 81px;
+
+  background: #66B2B2;
+  border-radius: 25px;
+
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 25px;
+  
+  color: #004C4C;
+  border: 1px solid #004C4C;
+}
+
+.password-bttn:hover, .password-bttn:focus {
+  background: #008080;
+}
+
+.hidden { 
+  display:none;
+  background: #66B2B2;
+}
