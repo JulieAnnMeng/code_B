@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,700&display=swap');
+
+.navbar {
+  height: 150px;
+  background: url("./Banner.jpg");
+  padding: 20px, 20px, 20px, 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.block {
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Navbar-title {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-size: 72px;
+  line-height: 25px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #B2D8D8;
+  text-shadow: inset 5px 3px #008080;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Navbar-title:hover {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-links{
+  float: right;
+  margin-top: 7px;
+  margin-right: 20px;
+  top: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+span {
+  font-family: 'Quantico', sans-serif;
+  font-weight: bold;
 }
+
+.search {
+  width: 38vw;
+  line-height: 60px;
+  background: #B2D8D8;
+  border-radius: 25px;
+}
+
+.searchbar {
+  display: center;
+  padding-left: 5%;
+  padding-top: 7px;
+}
+
+.bttn {
+  height: 81px;
+  background: #B2D8D8;
+  border-radius: 25px;
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 25px;
+  color: #006666;
+  border: 2px solid #004C4C;
+}
+
+.nav-bttn {
+  padding-top: 26px;
+}
+
+.bttn:hover {
+  background: #008080;
+  color: white;
+}
+

@@ -1,28 +1,44 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Body from "./components/Body";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    // console.log(loggedIn)
+    setIsLoggedIn(loggedIn)
+     if(isLoggedIn) {
+      getUser()
+    } else {setUser(null)}
+  }, [isLoggedIn]);
+
+ 
+
+  function getUser() {
+    // fetch("/me")
+    // .then((r) => {
+    //   if (r.ok) {
+    //     r.json().then((data) => {
+    //       setUser(data);
+    //     })
+    //   } else {
+    //     r.json().then(setUser(null))
+    //   }})
+    // .catch((error) => console.log(error))
+    console.log("got user")
+  }
+
+  // console.log(user, isLoggedIn)
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user}/>
+    </div>
   );
 }
 
