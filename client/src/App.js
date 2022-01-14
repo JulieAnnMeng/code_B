@@ -19,17 +19,16 @@ function App() {
  
 
   function getUser() {
-    // fetch("/me")
-    // .then((r) => {
-    //   if (r.ok) {
-    //     r.json().then((data) => {
-    //       setUser(data);
-    //     })
-    //   } else {
-    //     r.json().then(setUser(null))
-    //   }})
-    // .catch((error) => console.log(error))
-    console.log("got user")
+    fetch("/me")
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          setUser(data);
+        })
+      } else {
+        r.json().then(setUser(null))
+      }})
+    .catch((error) => console.log(error))
   }
 
   // console.log(user, isLoggedIn)
@@ -37,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user}/>
+      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} getUser={getUser}/>
     </div>
   );
 }

@@ -19,31 +19,26 @@ function Login({setIsLoggedIn}) {
     }
 
     function logIn (data) {
-        // fetch('/login',{
-        //   method: "POST",
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //     },
-        //   body: JSON.stringify(data)
-        // })
-        // .then((r) => {
-        //   if (r.ok) {
-        //     r.json().then((user) => {
-        //         localStorage.setItem("isLoggedIn", true);
-        //         setIsLoggedIn(true)
-        //         history.push('/')
-        //     });
-        //   } 
-        //   else {
-        //     r.json().then((err) => console.log(err.errors));
-        //   }
-        // })
-        // .catch(error => console.log("Log in incorrect: ", error))
-        
-        localStorage.setItem("isLoggedIn", true);
-        setIsLoggedIn(true)
-        history.push('/')
-        console.log("Logged In")
+        fetch('/login',{
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+            },
+          body: JSON.stringify(data)
+        })
+        .then((r) => {
+          if (r.ok) {
+            r.json().then((user) => {
+                localStorage.setItem("isLoggedIn", true);
+                setIsLoggedIn(true)
+                history.push('/')
+            });
+          } 
+          else {
+            r.json().then((err) => console.log(err.errors));
+          }
+        })
+        .catch(error => console.log("Log in incorrect: ", error))
     }
 
     return (
