@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,700&display=swap');
 
 .navbar {
-  height: 150px;
+  height: 105px;
   background: url("./Banner.jpg");
   padding: 20px, 20px, 20px, 20px;
 }
@@ -61,15 +61,27 @@ span {
   font-weight: 900;
   font-size: 24px;
   line-height: 25px;
+  text-decoration: none;
   color: #006666;
   border: 2px solid #004C4C;
 }
 
-.nav-bttn {
-  padding-top: 26px;
+.icon {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 75px;
+  float: left;
+  background-color: #B2D8D8;
+  border-radius: 50%;
+  text-decoration-line: none;
+  outline: 2px solid #004C4C;
+
+  color: #006666;
 }
 
-.bttn:hover {
+.bttn:hover, .icon:hover {
   background: #008080;
   color: white;
 }
@@ -87,6 +99,10 @@ span {
   line-height: 11.9vh;
 
   color: #008080;
+}
+
+.discus-bttn{
+  float: right;
 }
 
 .icon-img {
@@ -133,21 +149,6 @@ li {
   display: block
 }
 
-.icon {
-  font-family: 'Quantico', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 52px;
-  line-height: 75px;
-  float: left;
-  background-color: #008080;
-  border-radius: 50%;
-  text-decoration-line: none;
-  outline: 2px solid #004C4C;
-
-  color: white;
-}
-
 .discus-page {
   margin-left: -10%;
   margin-right: -10%;
@@ -167,7 +168,7 @@ li {
   color: white;
 }
 
-.small-icon:hover, .icon:hover {
+.small-icon:hover {
   background: #66B2B2;
   color: white;
 }
@@ -224,19 +225,16 @@ h2.board, h4.board{
   color: #004C4C;
 }
 
-.discus-bttn{
-  float: right;
-}
-
 .bttn2 {
   background: #008080;
   color: white;
-  border-radius: 25px;
+  font-size: 24px;
+  border-radius: 12px;
   border: 2px solid #004C4C
 }
 
 .bttn2:hover {
-  background: #66B2B2;
+  background: #B2D8D8;
   color: #004C4C;
   border: 2px solid #004C4C
 }
@@ -251,12 +249,7 @@ h2.board, h4.board{
   font-family: 'Quantico', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 72px;
-  line-height: 25px;
-  margin-top: 25px;
-  display: flex;
-  align-items: center;
-
+  font-size: 55px;
   color: #004C4C;
 }
 
@@ -297,7 +290,7 @@ li {
   font-weight: normal;
   font-size: 1.75vw;
   line-height: 1.5vw;
-  text-align: left;
+  text-align: center;
   color: #206A73;
 }
 

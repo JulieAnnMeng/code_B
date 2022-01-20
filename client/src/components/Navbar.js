@@ -22,17 +22,14 @@ function Navbar({isLoggedIn, setIsLoggedIn}) {
     }
 
     function logOut() {
-		// fetch("/logout", {
-		// 	method: "DELETE",
-		// }).then(() => {
-        //     localStorage.removeItem("isLoggedIn")
-        //     setIsLoggedIn(false)
-        //     history.push('/')
-		// });
-        localStorage.removeItem("isLoggedIn")
-        setIsLoggedIn(false)
-        history.push('/')
-        console.log("Logged out")
+		fetch("/logout", {
+			method: "DELETE",
+		}).then(() => {
+            localStorage.removeItem("isLoggedIn")
+            setIsLoggedIn(false)
+            history.push('/')
+            // console.log("Logged out")
+		});        
 	}
 
 
@@ -55,13 +52,13 @@ function Navbar({isLoggedIn, setIsLoggedIn}) {
                 {isLoggedIn ?
                     <>
                         
-                        <button className="bttn nav-bttn" onClick={logOut}>Logout</button>
-                        <NavLink className="nav-bttn" to='#'><button className="bttn">👤</button></NavLink>
+                        <button className="bttn" onClick={logOut}>Logout<br/></button>
+                        <NavLink className="bttn" to='#'><button className="bttn">👤</button></NavLink>
                     </>
                     :
                     <>
-                        <NavLink className="nav-bttn" to='/Login'><button className="bttn">Login</button></NavLink>
-                        <NavLink className="nav-bttn" to='/Signup'><button className="bttn">Sign up</button></NavLink>
+                        <NavLink className="bttn" to='/Login'><button className="bttn">Login</button></NavLink>
+                        <NavLink className="bttn" to='/Signup'><button className="bttn">Sign up</button></NavLink>
                     </>
                 }
                 

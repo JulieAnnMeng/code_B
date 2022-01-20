@@ -35,7 +35,7 @@ function Login({setIsLoggedIn}) {
             });
           } 
           else {
-            r.json().then((err) => console.log(err.errors));
+            r.json().then((err) => console.log("Log in incorrect: ", err.error));
           }
         })
         .catch(error => console.log("Log in incorrect: ", error))
@@ -65,7 +65,7 @@ function Login({setIsLoggedIn}) {
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <button type="submit">Login</button>
+                    <button type="submit" className="bttn2">Login</button>
                 </form>
             </div>
         </div>

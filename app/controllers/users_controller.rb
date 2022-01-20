@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
-        session[:user_id] = user.id
-        render json: user, status: :created
+        if session[:user_id] = user.id
+            render json: user, status: :created
+        else
+            render json: {errors: user.errors}, status: :unauthorized
+        end
     end
 
     def index

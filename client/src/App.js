@@ -11,12 +11,12 @@ function App() {
     const loggedIn = localStorage.getItem("isLoggedIn");
     // console.log(loggedIn)
     setIsLoggedIn(loggedIn)
-     if(isLoggedIn) {
+     if(loggedIn) {
       getUser()
     } else {setUser(null)}
   }, [isLoggedIn]);
 
- 
+//  console.log(user);
 
   function getUser() {
     fetch("/me")

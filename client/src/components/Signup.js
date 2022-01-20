@@ -35,7 +35,7 @@ function Signup({setIsLoggedIn}) {
             });
           } 
           else {
-            r.json().then((err) => console.log(err.errors));
+            r.json().then((err) => console.log("Please fill out all inputs: ", err.errors));
           }
         })
         .catch(error => console.log("Log in incorrect: ", error))
@@ -43,60 +43,60 @@ function Signup({setIsLoggedIn}) {
 
     return (
         <div className="form">
-        <h1 className='form-title'>Signup</h1>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label><span>First name </span></label>
-                <input 
-                    id="firstname-signup" 
-                    placeholder="First name"
-                    name="first_name" 
-                    value={formData.first_name}
-                    onChange={handleChange}
-                />
-                <br /><br />
-                <label><span>Last name </span></label>
-                <input 
-                    id="lastname-signup"
-                    placeholder="Last name"
-                    name="last_name" 
-                    value={formData.last_name}
-                    onChange={handleChange}
-                />
-                <br /><br />
-                <label><span>Username </span></label>
-                <input 
-                    id="username-signup"
-                    placeholder="username"
-                    name="username" 
-                    value={formData.username}
-                    onChange={handleChange}
-                />
-                <br /><br />
-                <label><span>Password </span></label>
-                <input 
-                    id="password-signup" 
-                    placeholder="password"
-                    type="password"
-                    name="password" 
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-                <br /><br />
-                <label><span>Password Confirmation </span></label>
-                <input 
-                    id="password-confirmation-signup" 
-                    placeholder="Password confirmation"
-                    type="password"
-                    name="password_confirmation" 
-                    value={formData.password_confirmation}
-                    onChange={handleChange}
-                />
-                <br /><br />
-                <button type="submit">Signup</button>
-            </form>
-        </div>    
-    </div>
+            <h1 className='form-title'>Signup</h1>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label><span>First name </span></label>
+                    <input 
+                        id="firstname-signup" 
+                        placeholder="First name"
+                        name="first_name" 
+                        value={formData.first_name}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <label><span>Last name </span></label>
+                    <input 
+                        id="lastname-signup"
+                        placeholder="Last name"
+                        name="last_name" 
+                        value={formData.last_name}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <label><span>Username </span></label>
+                    <input 
+                        id="username-signup"
+                        placeholder="username"
+                        name="username" 
+                        value={formData.username}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <label><span>Password </span></label>
+                    <input 
+                        id="password-signup" 
+                        placeholder="password"
+                        type="password"
+                        name="password" 
+                        value={formData.password}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <label><span>Password Confirmation </span></label>
+                    <input 
+                        id="password-confirmation-signup" 
+                        placeholder="Password confirmation"
+                        type="password"
+                        name="password_confirmation" 
+                        value={formData.password_confirmation}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <button type="submit" className="bttn2">Signup</button>
+                </form>
+            </div>    
+        </div>
     )
 }
 

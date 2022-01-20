@@ -8,17 +8,14 @@ import Signup from "./Signup";
 function Body({setIsLoggedIn, setUser, user, getUser}) {
     const [board, setBoard] = useState(null);
 
-    let icon;
+    // let icon;
 
-    if(user) {
-        getDiscussions();
-        if(user.icon){
-            icon = <Link to='/UserPage' className='icon'><img src={user.icon} className='icon-img'/></Link>;
-        } else {
-            icon = <Link to='/UserPage' className='icon'>{user.first_name.charAt(0) + user.last_name.charAt(0)}</Link>;
+    useEffect(() => {
+        const loggedIn = localStorage.getItem("isLoggedIn");
+         if(loggedIn) {
+            getDiscussions();
         }
-    }    
-    // This is running in a loop, change to something else
+      }, []);
 
     function getDiscussions() {
         fetch("/discussions")
@@ -30,24 +27,28 @@ function Body({setIsLoggedIn, setUser, user, getUser}) {
     return (
         <div className="App">
             <div className='intro'>
-                <br /><br />
                 <h1 className='welcome'> 
-                    {user ? icon : null} 
+                    {
+                        user ? 
+                            user.icon ?
+                            <Link to='#' className='icon'><img src={user.icon} className='icon-img'/></Link>
+                            :
+                            <Link to="/#" className="icon">&nbsp;{user.first_name.charAt(0) + user.last_name.charAt(0)}&nbsp;</Link>
+                        : 
+                        null
+                    } 
                     <em className="welcome-2">
                         Welcome to Code<span>B</span>
                     </em>
                     {
                         user ?
-                        <Link to={`/DiscussionForm`} className="bttn discus-bttn"><br/>Start a discussion<br/></Link>
+                        <Link to={`/DiscussionForm`} className="bttn discus-bttn"><br/>&nbsp;Start a discussion&nbsp;<br/></Link>
                         : 
                         null
                     }
                 </h1>
-                <br />
-                <p className='info txt'>
-                    A forum for all coding discussions, where users can interact with each other and continue their education in programming.
-                </p>
             </div>
+            {/* change welcome to home, do not like on body */}
            {/* To start added in all other routes */}
             <Switch>
                 <Route exact path="/">

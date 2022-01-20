@@ -54,6 +54,9 @@ function Home({user, board, getUser, getDiscussions}) {
 
     return (
         <div>
+            <p className='info txt'>
+                A forum for all coding discussions, where users can interact with each other and continue their education in programming.
+            </p>
             <div className='container'>
                 <h2 className='board'>
                     Discussion Board
