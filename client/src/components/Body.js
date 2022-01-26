@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
+import DiscussionForm from "./DiscussionForm";
+import Discussion from "./Discussion";
+import CommentForm from "./CommentForm";
+import ProfilePage from "./ProfilePage";
+import ProfileEdit from "./ProfileEdit";
+import UserPage from "./UserPage";
 
 function Body({setIsLoggedIn, setUser, user, getUser}) {
     const [board, setBoard] = useState(null);
-
-    // let icon;
 
     useEffect(() => {
         const loggedIn = localStorage.getItem("isLoggedIn");
@@ -31,9 +35,9 @@ function Body({setIsLoggedIn, setUser, user, getUser}) {
                     {
                         user ? 
                             user.icon ?
-                            <Link to='#' className='icon'><img src={user.icon} className='icon-img'/></Link>
+                            <Link to='/UserPage' className='icon'><img src={user.icon} className='icon-img'/></Link>
                             :
-                            <Link to="/#" className="icon">&nbsp;{user.first_name.charAt(0) + user.last_name.charAt(0)}&nbsp;</Link>
+                            <Link to="/UserPage" className="icon">&nbsp;{user.first_name.charAt(0) + user.last_name.charAt(0)}&nbsp;</Link>
                         : 
                         null
                     } 
@@ -59,6 +63,30 @@ function Body({setIsLoggedIn, setUser, user, getUser}) {
                 </Route>
                 <Route exact path="/Signup">
                     <Signup setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>
+                </Route>
+                <Route exact path="/ProfilePage">
+                    <ProfilePage user={user} getUser={getUser}/>
+                </Route>
+                <Route exact path="/ProfileEdit">
+                    <ProfileEdit user={user} getUser={getUser}/>
+                </Route>
+                <Route exact path="/UserPage">
+                    <UserPage user={user} getUser={getUser} getDiscussions={getDiscussions}/>
+                </Route>
+                <Route exact path="/DiscussionForm">
+                    <DiscussionForm user={user} getUser={getUser} getDiscussions={getDiscussions}/>
+                </Route>
+                <Route exact path="/DiscussionForm/:id">
+                    <DiscussionForm user={user} getUser={getUser} board={board} getDiscussions={getDiscussions}/>
+                </Route>
+                <Route exact path="/Discussion/:id">
+                    <Discussion user={user} board={board} getUser={getUser} getDiscussions={getDiscussions}/>
+                </Route>
+                <Route exact path="/CommentForm/:id">
+                    <CommentForm user={user} board={board} getUser={getUser} getDiscussions={getDiscussions} />
+                </Route>
+                <Route exact path="/Discussion/:discussion_id/CommentForm/:id">
+                    <CommentForm user={user} board={board} getUser={getUser} getDiscussions={getDiscussions} />
                 </Route>
             </Switch>
         </div>

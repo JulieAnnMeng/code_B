@@ -2,6 +2,29 @@ import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import DiscussionCard from './DiscussionCard';
 
+export function addInterest(user_id, discussion_id, getUser, getDiscussions) {
+    fetch(`/addInterest`,{
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({
+        user_id, 
+        discussion_id
+      })
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json();
+        }
+      else {
+        r.json().then((err) => console.log(err.errors));
+      }
+      getUser();
+      getDiscussions();
+    })
+    .catch(error => console.log("Log in incorrect: ", error))
+}
 
 function Home({user, board, getUser, getDiscussions}) {
     let discussionBoard;

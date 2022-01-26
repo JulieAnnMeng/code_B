@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-
+import { addInterest } from './Home';
 
 function DiscussionCard({user, interestStar, id, topic, discussion, icon, username, commentCount, interestCount, interests, entryUserID, getUser, getDiscussions}) {
     let history = useHistory();
-    
+
     function handleInterest(e) {
         e.preventDefault();
         interestStar = true;
@@ -23,33 +23,9 @@ function DiscussionCard({user, interestStar, id, topic, discussion, icon, userna
         }
     }
 
-    function addInterest (user_id, discussion_id) {
-        fetch(`/addInterest`,{
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-            },
-          body: JSON.stringify({
-            user_id, 
-            discussion_id
-          })
-        })
-        .then((r) => {
-          if (r.ok) {
-            r.json();
-            }
-          else {
-            r.json().then((err) => console.log(err.errors));
-          }
-          getUser();
-          getDiscussions();
-        })
-        .catch(error => console.log("Log in incorrect: ", error))
-      }
-    
     return (
         <div className="card"><br/>
-            <Link to={`/Discussion/${id}`} className="title"  > {topic} </Link><br/>
+            <Link to={`/Discussion/${id}`} className="title"> {topic} </Link><br/>
             <p className="txt">{discussion}</p>
             <p> {icon} <span>{username}</span>                
             </p>

@@ -53,7 +53,7 @@ function Navbar({isLoggedIn, setIsLoggedIn}) {
                     <>
                         
                         <button className="bttn" onClick={logOut}>Logout<br/></button>
-                        <NavLink className="bttn" to='#'><button className="bttn">👤</button></NavLink>
+                        <NavLink className="bttn" to='/ProfilePage'><button className="bttn">👤</button></NavLink>
                     </>
                     :
                     <>
