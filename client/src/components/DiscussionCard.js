@@ -32,7 +32,7 @@ function DiscussionCard({user, interestStar, id, topic, discussion, icon, userna
             <div>
                 <button className="bttn2" onClick={handleInterest} >{interestStar ? " ★ " : " ☆ " } <span>{interestCount}</span> Interests</button>
                 &nbsp; &nbsp;
-                <Link to={user ? `/CommentForm/${id}` : `/Discussion/${id}`} className="bttn2"><span>{commentCount}</span> Comments</Link>
+                <Link to={user ? `/CommentForm/${id}` : `/Discussion/${id}`}><button className="bttn2"><span>{commentCount}</span> Comments</button></Link>
             </div><br/>
         </div> 
         <br/> 
