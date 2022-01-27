@@ -6,11 +6,14 @@ import Body from "./components/Body";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [user, setUser] = useState();
+  const [board, setBoard] = useState(null);
+  const [searchReturn, setSearchReturn] = useState(null);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
     // console.log(loggedIn)
     setIsLoggedIn(loggedIn)
+    getDiscussions();
      if(loggedIn) {
       getUser()
     } else {setUser(null)}
@@ -31,12 +34,22 @@ function App() {
     .catch((error) => console.log(error))
   }
 
+  function getDiscussions() {
+    fetch("/discussions")
+    .then((response) => response.json())
+    .then((data) => {
+      setBoard(data);
+    })
+    .catch((error) => console.log(error))
+}
+
+
   // console.log(user, isLoggedIn)
 
   return (
     <div className="App">
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} getUser={getUser}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} board={board} setSearchReturn={setSearchReturn}/>
+      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user} getUser={getUser} getDiscussions={getDiscussions} board={searchReturn ? searchReturn : board}/>
     </div>
   );
 }

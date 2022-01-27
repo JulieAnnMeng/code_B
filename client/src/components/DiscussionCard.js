@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { addInterest } from './Home';
 
-function DiscussionCard({user, interestStar, id, topic, discussion, icon, username, commentCount, interestCount, interests, entryUserID, getUser, getDiscussions}) {
+function DiscussionCard({user, interestStar, id, topic, discussion, icon, username, commentCount, interestCount, interests, addInterest}) {
     let history = useHistory();
 
     function handleInterest(e) {
@@ -24,7 +23,8 @@ function DiscussionCard({user, interestStar, id, topic, discussion, icon, userna
     }
 
     return (
-        <div className="card"><br/>
+        <>
+            <div className="card inside"><br/>
             <Link to={`/Discussion/${id}`} className="title"> {topic} </Link><br/>
             <p className="txt">{discussion}</p>
             <p> {icon} <span>{username}</span>                
@@ -34,7 +34,10 @@ function DiscussionCard({user, interestStar, id, topic, discussion, icon, userna
                 &nbsp; &nbsp;
                 <Link to={user ? `/CommentForm/${id}` : `/Discussion/${id}`} className="bttn2"><span>{commentCount}</span> Comments</Link>
             </div><br/>
-        </div>       
+        </div> 
+        <br/> 
+        </>
+     
     )
 }
 

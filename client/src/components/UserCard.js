@@ -28,35 +28,31 @@ function UserCard({user, id, interest_id, discussion_id, type, topic, discussion
         return (
             <div className="container">
                 { type === "discussion" || type === "interest" ?
-                <div className="card">
-                    {/* <h1 className="title">{topic}</h1> */}
+                <div className="inside">
                     <Link to={`/Discussion/${id}`} className="title" > {topic} </Link> <br />
                     <p className="txt">{discussion}</p>
                     <p><span>Date created/updated: </span>{date}</p>
                     {user === 'user' ? (
                         <div>
-                            &nbsp;{type === "interest" ? null : <button className="btn bttn2" onClick={handleEdit} > Edit </button>}&nbsp; &nbsp;
-                            <button className="btn bttn2" onClick={handleDelete} > Delete</button>
+                            &nbsp;{type === "interest" ? null : <button className="bttn2" onClick={handleEdit} > Edit </button>}&nbsp; &nbsp;
+                            <button className="bttn2" onClick={handleDelete} > Delete</button>
                         </div>
-                    ): (null)}<br />
-                    &nbsp;
+                    ): (null)}
                 </div>
             :
-                <div className="card">
-                    {/* <h1 className="title">{topic}</h1> */}
+                <div className="inside">
                     <Link to={`/Discussion/${discussion_id}`} className="title" > {topic} </Link><br />
                     <p className="txt">{discussion}</p>
-                    <div className="card card2 container">
+                    <div className="outside">
                         <p className="txt">{comment}</p>
                         <p><span>Date created/updated: </span>{date}</p>
                         {user === 'user' ? (
-                            <div className="d-grid gap-2 d-md-block">
-                                &nbsp;<button className="btn btn-primary bttn2" onClick={handleEdit} > Edit </button>&nbsp; &nbsp;
-                                <button className="btn btn-primary bttn2" onClick={handleDelete} > Delete</button>
+                            <div>
+                                &nbsp;<button className="bttn2" onClick={handleEdit} > Edit </button>&nbsp; &nbsp;
+                                <button className="bttn2" onClick={handleDelete} > Delete</button>
                             </div>
-                        ) : (null)}<br />
+                        ) : (null)}
                     </div>
-                    &nbsp;
                 </div>
             }
             &nbsp;

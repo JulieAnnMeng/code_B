@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 function ProfileEdit({user, getUser}) {
@@ -65,20 +65,19 @@ function ProfileEdit({user, getUser}) {
     }
 
     return (
-        <div><br />
-        <h1 className='form-title2'>Profile Edits</h1><br />
-        <div className='container outside'>
-            <div className='container inside'>
-                <br /><h1 className='form-type-title'>Personal Information: </h1><br />
-                &nbsp;
-                <form className='container edit-form right' onSubmit={handleSubmit}>
-                    <br /><div>
-                        <label className="edit-label"><span>Firstname</span></label>
-                        <div className="edit-input" style={{width: '55%'}}>
+        <div>
+        <h1 className='form-title2'>Profile Edits</h1>
+        <div className='outside'><br />
+            <div className='inside'><br />
+                <h1 className='form-type-title'>Personal Information:</h1><br />
+                <form className='edit-form' onSubmit={handleSubmit}>
+                    <div>
+                        <div className="block" >
+                            <label className="edit-label"><span>Firstname</span></label>
                             <input 
                                 id="firstname-edit" 
-                                className="form-control input" 
                                 type="firstname" 
+                                className="input" 
                                 placeholder="First name"
                                 name="first_name" 
                                 pattern="/^[A-Za-z]+$/" 
@@ -86,15 +85,14 @@ function ProfileEdit({user, getUser}) {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
-                    &nbsp;
+                    </div><br/>
                     <div>
-                        <label className="edit-label"><span>Lastname</span></label>
-                        <div className="edit-input" style={{width: '55%'}}>
+                        <div className="block">
+                            <label className="edit-label"><span>Lastname</span></label>
                             <input 
                                 id="lastname-edit"
                                 type="lastname" 
-                                className="form-control input" 
+                                className="input" 
                                 placeholder="Last name"
                                 name="last_name" 
                                 pattern="/^[A-Za-z]+$/" 
@@ -102,15 +100,14 @@ function ProfileEdit({user, getUser}) {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
-                    &nbsp; 
+                    </div><br/>
                     <div>
-                        <label className="edit-label"><span>Username</span></label>
-                        <div className="edit-input" style={{width: '55%'}}>
+                        <div className="block">
+                            <label className="edit-label"><span>Username</span></label>
                             <input 
                                 id="username-edit"
                                 type="username" 
-                                className="form-control input" 
+                                className="input" 
                                 placeholder="username"
                                 name="username" 
                                 // pattern="/^[A-Za-z]+$/" 
@@ -118,15 +115,14 @@ function ProfileEdit({user, getUser}) {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
-                    &nbsp;
+                    </div><br/>
                     <div>
-                        <label className="edit-label"><span>Icon URL</span></label>
-                        <div className="edit-input" style={{width: '55%'}}>
+                        <div className="block">
+                            <label className="edit-label"><span>Icon URL</span></label>                            
                             <input 
                                 id="icon-edit"
                                 type="icon" 
-                                className="form-control input" 
+                                className="input" 
                                 placeholder="icon"
                                 name="icon" 
                                 // pattern="/^[A-Za-z]+$/" 
@@ -134,16 +130,16 @@ function ProfileEdit({user, getUser}) {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
-                    &nbsp;
+                    </div><br/><br/>
                     <div>
-                        <h2 className="title">To confirm your changes, please enter your password</h2><br /><br /><br />
-                        <label className="edit-label"><span>Current Password</span></label>
-                        <div className="edit-input" style={{width: '55%'}}>
+                        <h2 className="title">To confirm your changes, please enter your password</h2><br />
+                        
+                        <div className="block">
+                            <label className="edit-label"><span>Current Password</span></label>
                             <input 
                                 id="current-password-edit" 
                                 type="password" 
-                                className="form-control input" 
+                                className="input" 
                                 placeholder="Current Password" 
                                 name="password" 
                                 // pattern="/^\s*$/" 
@@ -152,23 +148,22 @@ function ProfileEdit({user, getUser}) {
                                 required
                             />
                         </div>
-                    </div>
-                    &nbsp;
-                    <div>
-                        <button type="submit" className="btn password-bttn bttn">Update</button>
+                    </div><br/>
+                    <div className="edit-bttn">
+                        <button type="submit" className="password-bttn bttn">Update</button>
                         &nbsp; &nbsp;
-                        <button className="btn password-bttn bttn" onClick={handleToggle}> {toggle ? "Nevermind" : "Change Password"} </button>                    
+                        <button className="password-bttn bttn" onClick={handleToggle}> {toggle ? "Nevermind" : "Change Password"} </button>                    
                     </div>
                     {/* Password Change Section */}
                     <div className={toggle ? undefined : 'hidden'}><br />
-                        <div className="edit-password conatainer card"><br />
+                        <div className="edit-password"><br />
                             <div className="edit-password">
-                                <label className="edit-label"><span>New Password</span></label>
-                                <div style={{width: '55%'}}>
+                                <div className="block">
+                                    <label className="edit-label"><span>New Password</span></label>
                                     <input 
                                         id="new-password-edit" 
                                         type="password" 
-                                        className="form-control input" 
+                                        className="input" 
                                         placeholder="New Password"
                                         name="new_password" 
                                         // pattern="/^\s*$/" 
@@ -178,11 +173,10 @@ function ProfileEdit({user, getUser}) {
                                         style={{backgroundColor: match ? 'none' : 'red'}}
                                     />
                                 </div>
-                            </div>
-                            &nbsp;
+                            </div><br/>
                             <div className="edit-password">
-                                <label className="edit-label"><span>New Password Confirmation</span></label>
-                                <div  style={{width: '55%'}}>
+                                <div className="block">
+                                    <label className="edit-label"><span>New Password Confirmation</span></label>
                                     <input 
                                         id="new-password-confirmation-edit" 
                                         type="password" 
@@ -196,7 +190,7 @@ function ProfileEdit({user, getUser}) {
                                         style={{backgroundColor: match ? 'none' : 'red'}}
                                     />
                                 </div>
-                            </div>
+                            </div><br/>
                         </div>
                     </div>    
                 </form><br />

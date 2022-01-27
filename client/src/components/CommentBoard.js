@@ -21,10 +21,9 @@ function CommentBoard({id, user, comment, commentor}) {
     }
 
     return (
-        <div>
-            &nbsp;
-            <p className="txt">{comment}</p>
+        <div className="outside">
             <p>{icon} <span>{commentor.user}</span></p>
+            <p className="txt">{comment}</p>
         </div>
     )
 }

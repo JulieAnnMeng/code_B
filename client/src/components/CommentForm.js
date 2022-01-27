@@ -113,7 +113,7 @@ function CommentForm({user, board, getUser, getDiscussions}) {
                                     </div>
                                 </div><br />
                                 <div className="submit">
-                                    <button type="submit" className="bttn bttn2">Submit</button>
+                                    <button type="submit" className="bttn2">Submit</button>
                                 </div>
                             </form><br />
                         </div>    

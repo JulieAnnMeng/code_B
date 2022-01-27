@@ -90,12 +90,12 @@ function ViewUser({user}) {
         <>
             {userView ? 
             <>
-                <div className="container" style={{display: discussion[0] ? "block" : "none"}}>
-                    <h2 className='board'>Started Discussions</h2><br />
+                <div style={{display: discussion[0] ? "block" : "none"}}>
+                    <h2 className='board'>Started Discussions</h2>
                     {discussion}
                 </div>
-                <div className="container" style={{display: comment[0] ? "block" : "none"}}>
-                    <h2 className='board'>Comments</h2><br />
+                <div style={{display: comment[0] ? "block" : "none"}}>
+                    <h2 className='board'>Comments</h2>
                     {comment}
                 </div>
             </>

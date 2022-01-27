@@ -1,24 +1,19 @@
 import React from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import CommentBoard from './CommentBoard';
-import { addInterest } from './Home';
 
-
-function Discussion({user, board, getUser, getDiscussions}) {
+function Discussion({user, board, getUser, getDiscussions, addInterest}) {
     const { id } = useParams();
     let history = useHistory();
-
-    // add useEffect to grab discussions
 
     let commentAvailable;
     let commentAlert = "Login or signup to participate";
     let discussion;
     let interestCount;
-    let welcome;
     let tableHeader;
     let commentBoard;
     let interestStar;
-    let commentorIcon;
+    let icon;
 
     if(board){  
         discussion = board.find(discussion => discussion.id === parseInt(id));
@@ -27,15 +22,15 @@ function Discussion({user, board, getUser, getDiscussions}) {
             commentAvailable = `${discussion.comments.length} comments below. Join the discussion!`;
             if(user){
                 if(discussion.user.icon){
-                    commentorIcon = <Link to={`/ViewUser/${discussion.user.id}`}><img src={discussion.user.icon} alt="usericon" className='icon-img-small'/></Link>;
+                    icon = <Link to={`/ViewUser/${discussion.user.id}`}><img src={discussion.user.icon} alt="usericon" className='icon-img-small'/></Link>;
                 } else {
-                    commentorIcon = <Link to={`/ViewUser/${discussion.user.id}`} className='small-icon'>{discussion.user.first_name.charAt(0) + discussion.user.last_name.charAt(0)}</Link>
+                    icon = <Link to={`/ViewUser/${discussion.user.id}`} className='small-icon'>{discussion.user.first_name.charAt(0) + discussion.user.last_name.charAt(0)}</Link>
                 }
             } else {
                 if(discussion.user.icon){
-                    commentorIcon = <Link to={`/Login`}><img src={discussion.user.icon} alt="usericon" className='icon-img-small'/></Link>;
+                    icon = <Link to={`/Login`}><img src={discussion.user.icon} alt="usericon" className='icon-img-small'/></Link>;
                 } else {
-                    commentorIcon = <Link to={`/Login`} className='small-icon'>{discussion.user.first_name.charAt(0) + discussion.user.last_name.charAt(0)}</Link>
+                    icon = <Link to={`/Login`} className='small-icon'>{discussion.user.first_name.charAt(0) + discussion.user.last_name.charAt(0)}</Link>
                 }
             }
             let comments; 
@@ -69,7 +64,6 @@ function Discussion({user, board, getUser, getDiscussions}) {
         interestStar = user.userPage.interests.find(interest => interest.discussion_id === parseInt(id)) ? true : false;
         tableHeader = commentAvailable
     } else {
-        welcome = null;
         tableHeader = commentAlert
     }
 
@@ -78,6 +72,8 @@ function Discussion({user, board, getUser, getDiscussions}) {
         if(user) {
             let notAlreadyInterested = user.userPage.interests.find(interest => interest.discussion_id === parseInt(id)) ? false : true;
             if (notAlreadyInterested){
+                debugger;
+                interestStar = true;
                 let user_id = user.id;
                 let discussion_id = id;
                 addInterest(user_id, discussion_id, getUser, getDiscussions);
@@ -93,47 +89,43 @@ function Discussion({user, board, getUser, getDiscussions}) {
             <div>
             {discussion ?  
                 <>
-                    <br /><br />
                     <h1 className='discus-title'>
                         {discussion.topic}
-                    </h1><br />              
-                    <div><br />
+                    </h1>
+                    <div className="inside">                 
                         <p>{discussion.discussion}</p>
-                        <p>{commentorIcon}<span>{discussion.user.username}</span></p>  
+                        <p>{icon}<span>{discussion.user.username}</span></p>  
                         &nbsp;  
                         <div>
-                            <button className="btn bttn2" onClick={handleInterest}>{ interestStar ? " ★ " : " ☆ " }<span>{interestCount}</span> Interests</button>
+                            <button className="bttn2" onClick={handleInterest}>{ interestStar ? " ★ " : " ☆ " }&nbsp;<span>{interestCount}</span> Interests&nbsp;</button>
                             &nbsp; &nbsp;
-                            <Link to={user ? `/CommentForm/${id}` : `/Login`} className="btn bttn2"><span>{discussion.comments.length}</span> Comments</Link>
+                            <Link to={user ? `/CommentForm/${id}` : `/Login`}><button className="bttn2">&nbsp;<span>{discussion.comments.length}</span> Comments&nbsp;</button></Link>
                         </div>
-                        &nbsp;
-                    </div>
-                    <div> 
-                        &nbsp;
-                        <h4 className="board">Comments</h4>
-                        &nbsp;
-                        &nbsp;
-                        <div><br/>
+                    </div>    
+                    <h4 className="board">Comments</h4>
+                    <div className="inside">    
+                        <div className="info-alert"><br/>
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>{tableHeader}</th>
+                                        <th>&nbsp; &nbsp;{tableHeader}&nbsp; &nbsp;</th>
                                         <td>
                                             {user ?
-                                            <Link to={`/CommentForm/${id}`} className="btn bttn2">Comment</Link>
+                                            <Link to={`/CommentForm/${id}`} className="bttn2">&nbsp;Comment&nbsp;</Link>
                                             :
                                             <>
-                                                <Link to={`/Login`} className="btn bttn2">Login</Link>
-                                                <Link to={`/Signup`} className="btn bttn2">Signup</Link> 
+                                                <Link to={`/Login`} className="bttn2">&nbsp;Login&nbsp;</Link>
+                                                &nbsp; &nbsp;
+                                                <Link to={`/Signup`} className="bttn2">&nbsp;Signup&nbsp;</Link> 
                                             </>
                                             }
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br /><br />                 
+                            </table>                 
                         </div><br /> 
-                        {commentBoard}
-                    </div>
+                        {commentBoard}   
+                    </div> 
                 </>
             : 
                 <div>

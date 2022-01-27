@@ -43,7 +43,7 @@ function Login({setIsLoggedIn}) {
 
     return (
         <div className="form">
-            <h1 className='form-title'>Login</h1>
+            <h1 className='form-'>Login</h1>
             <div>
                 <form onSubmit={handleSubmit}>
                     <label><span>Username </span></label>

@@ -41,19 +41,22 @@ span {
 
 .search {
   width: 38vw;
-  line-height: 60px;
+  line-height: 71px;
   background: #B2D8D8;
   border-radius: 25px;
+  font-size: 24px;
+  padding: 1px;
+  padding-left: 5%;
 }
 
 .searchbar {
   display: center;
   padding-left: 5%;
-  padding-top: 7px;
+  margin-top: 7px;
 }
 
 .bttn {
-  height: 81px;
+  height: 78px;
   background: #B2D8D8;
   border-radius: 25px;
   font-family: 'Quantico', sans-serif;
@@ -64,6 +67,11 @@ span {
   text-decoration: none;
   color: #006666;
   border: 2px solid #004C4C;
+}
+
+.home {
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .icon {
@@ -86,7 +94,14 @@ span {
   color: white;
 }
 
-.welcome, .discus-title {
+.welcome {
+  font-family: 'Quantico', sans-serif;
+  font-style: normal;
+  font-size: 60px;
+  line-height: 10vh;
+
+  color: #008080;
+
   text-align: center;
   margin-left: 2%;
   margin-right: 2%;
@@ -95,8 +110,11 @@ span {
 .welcome-2, .discus-title{
   font-family: 'Quantico', sans-serif;
   font-style: normal;
-  font-size: 68px;
-  line-height: 11.9vh;
+  font-size: 48px;
+  line-height: 8vh;
+
+  text-align: center;
+  margin-right: 10%;
 
   color: #008080;
 }
@@ -178,6 +196,8 @@ li {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   line-height: 100px;
   text-align: center;
   color: #008080;
@@ -227,6 +247,7 @@ h2.board, h4.board{
 
 .bttn2 {
   background: #008080;
+  text-decoration: none;
   color: white;
   font-size: 24px;
   border-radius: 12px;
@@ -273,13 +294,13 @@ li {
 }
 
 .outside {
-  padding: 4.6vh 3.5vw 6.6vh 3.5vw;
+  padding: 1vh 3.5vw 2vh 3.5vw;
   background: #66B2B2D8;
   border-radius: 25px;
 }
 
 .inside {
-  padding: 4.6vh 3.5vw 6.6vh 3.5vw;
+  padding: 2.5vh 3.5vw 2.5vh 3.5vw;
   background: #B2D8D8;
   border-radius: 25px;
 }
@@ -295,9 +316,14 @@ li {
 }
 
 .label {
-  display: inline-block;
+  font-family: 'Quantico', sans-serif;
   width: 350px;
+  font-size: 24px;
+  line-height: 32px;
   text-align: left;
+
+  color: #004C4C;
+  display: inline-block;
 }
 
 div.col-sm-10.signup-input {
@@ -309,10 +335,18 @@ div.col-sm-10.signup-input {
   height: 60px;
   border-radius: 15px;
   width: 31.6vw;
+  text-align: center;
+  font-size: 24px;
 }
 
 .right {
   align-items: right;
+}
+
+.profile {
+  margin: 20px 25px 10px;
+  height: 58vh;
+  width: 20vw;
 }
 
 .submit {
@@ -337,16 +371,16 @@ div.col-sm-10.signup-input {
 
 .info-alert {
   height: 100px;
-  padding-top: 5px;
+  /* padding-top: 10px; */
   border: 1px solid #006666;
   box-shadow: 0px 4px 4px #004C4C;
   border-radius: 10px;
-
+  text-align: center;
   font-family: 'Quantico', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
-  line-height: 25px;
+  line-height: 32px;
 
   color: #004C4C;
 }
@@ -362,7 +396,9 @@ div.col-sm-10.signup-input {
 .edit-btn  {
   padding: 15px;
   margin-top: 15%;
+  margin-left: 45%;
   font-family: 'Quantico', sans-serif;
+  text-decoration: none;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
@@ -386,13 +422,16 @@ div.edit-password {
   font-weight: normal;
   font-size: 26px;
   line-height: 25px;
+  display:inline-block;
+  width: 24vw;
   text-align: left;
-
+  margin-right: 32px;
   color: #004C4C;
 }
 
 .edit-bttn {
-  padding-right: 350px;
+  left: 35%;
+  position: relative;
 }
 
 .password-bttn {

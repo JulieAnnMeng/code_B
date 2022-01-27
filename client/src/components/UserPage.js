@@ -132,22 +132,20 @@ function UserPage({user, getDiscussions, getUser}) {
             {user ?  
             <>
                 {blankPage ?
-                    <div className="container card" ><br /><br />
-                        <h2>There is nothing here. Start participating to add to this page</h2><br /><br />
+                    <div>
+                        <h2 className="info-alert"><br/>There is nothing here. Start participating to add to this page</h2>
                     </div>
                 :
                     <>
-                        <div className="container" style={{display: interested[0] ? "block" : "none"}}>
+                        <div style={{display: interested[0] ? "block" : "none"}}>
                             <h2 className='board'>Interested Discussions</h2>
                             {interested}
                         </div>
-                        &nbsp;
-                        <div className="container" style={{display: discussion[0] ? "block" : "none"}}>
+                        <div style={{display: discussion[0] ? "block" : "none"}}>
                             <h2 className='board'>Started Discussions</h2>
                             {discussion}
                         </div>
-                        &nbsp;
-                        <div className="container" style={{display: comment[0] ? "block" : "none"}}>
+                        <div style={{display: comment[0] ? "block" : "none"}}>
                             <h2 className='board'>Comments</h2>
                             {comment}
                         </div>
@@ -155,7 +153,7 @@ function UserPage({user, getDiscussions, getUser}) {
                 }
             </>
             :
-            <div className="spinner-border text-info center container" role="status"><span className="visually-hidden">Loading...</span></div>
+            <div><span>Loading...</span></div>
             }
             
         </div>

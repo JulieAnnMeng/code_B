@@ -1,57 +1,33 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import DiscussionCard from './DiscussionCard';
 
-export function addInterest(user_id, discussion_id, getUser, getDiscussions) {
-    fetch(`/addInterest`,{
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-        },
-      body: JSON.stringify({
-        user_id, 
-        discussion_id
-      })
-    })
-    .then((r) => {
-      if (r.ok) {
-        r.json();
-        }
-      else {
-        r.json().then((err) => console.log(err.errors));
-      }
-      getUser();
-      getDiscussions();
-    })
-    .catch(error => console.log("Log in incorrect: ", error))
-}
-
-function Home({user, board, getUser, getDiscussions}) {
+function Home({user, board, addInterest}) {
     let discussionBoard;
     let interestStar;
     let interests;
 
     if(board){
-        discussionBoard = board.map(entry => {
-            let commentorIcon;
+        let sortedBoard = board.sort((a,b) => (a.interest_count < b.interest_count ? 1 : -1))
+        discussionBoard = sortedBoard.map(entry => {
+            let icon;
             let entryUserID = entry.user.id;
-
             if (user) {
                 interestStar = user.userPage.interests.find(interest => interest.discussion_id === entry.id) ? true : false;
                 interests = user.userPage.interests;
                 
                 if(entry.user.icon){
-                    commentorIcon = <Link to={`/ViewUser/${entryUserID}`}><img src={entry.user.icon} alt="usericon" className='icon-img-small'/></Link>;
+                    icon = <Link to={`/ViewUser/${entryUserID}`}><img src={entry.user.icon} alt="usericon" className='icon-img-small'/></Link>;
                 } else {
-                    commentorIcon = <Link to={`/ViewUser/${entryUserID}`} className='small-icon'>{entry.user.first_name.charAt(0) + entry.user.last_name.charAt(0)}</Link>;
+                    icon = <Link to={`/ViewUser/${entryUserID}`} className='small-icon'>{entry.user.first_name.charAt(0) + entry.user.last_name.charAt(0)}</Link>;
                 }
             } else {
                 interestStar = null;
                 interests = null;
                 if(entry.user.icon){
-                    commentorIcon = <Link to={`/Login`}><img src={entry.user.icon} alt="usericon" className='icon-img-small'/></Link>;
+                    icon = <Link to={`/Login`}><img src={entry.user.icon} alt="usericon" className='icon-img-small'/></Link>;
                 } else {
-                    commentorIcon = <Link to={`/Login`} className='small-icon'>{entry.user.first_name.charAt(0) + entry.user.last_name.charAt(0)}</Link>;
+                    icon = <Link to={`/Login`} className='small-icon'>{entry.user.first_name.charAt(0) + entry.user.last_name.charAt(0)}</Link>;
                 }
             }
             return (
@@ -63,13 +39,11 @@ function Home({user, board, getUser, getDiscussions}) {
                     user={user}
                     interests={interests}
                     interestStar={interestStar}
-                    icon={commentorIcon}
+                    icon={icon}
                     username={entry.user.username}
                     commentCount={entry.comments.length}
                     interestCount={entry.interests.length}
-                    entryUserID={entry.user.id}
-                    getUser={getUser}
-                    getDiscussions={getDiscussions}
+                    addInterest={addInterest}
                 />
             )
         })
