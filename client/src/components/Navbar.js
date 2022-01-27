@@ -59,13 +59,13 @@ function Navbar({isLoggedIn, setIsLoggedIn, board, setSearchReturn}) {
                         
                         <button className="bttn" onClick={logOut}>Logout<br/></button>
                         &nbsp;&nbsp;&nbsp;
-                        <NavLink className="bttn" to='/ProfilePage'><button className="bttn">👤</button></NavLink>
+                        <NavLink to='/ProfilePage'><button className="bttn">👤</button></NavLink>
                     </>
                     :
                     <>
-                        <NavLink className="bttn" to='/Login'><button className="bttn">Login</button></NavLink>
+                        <NavLink to='/Login'><button className="bttn">Login</button></NavLink>
                         &nbsp;&nbsp;&nbsp;
-                        <NavLink className="bttn" to='/Signup'><button className="bttn">Sign up</button></NavLink>
+                        <NavLink to='/Signup'><button className="bttn">Sign up</button></NavLink>
                     </>
                 }
                 

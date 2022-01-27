@@ -42,51 +42,56 @@ function Signup({setIsLoggedIn}) {
     }
 
     return (
-        <div className="form">
+        <div className="form outside">
             <h1 className='form-title'>Signup</h1>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <label><span>First name </span></label>
+                <form className="inside"onSubmit={handleSubmit}>
+                    <label className="label"><span>First name </span></label>
                     <input 
                         id="firstname-signup" 
                         placeholder="First name"
+                        className="input"
                         name="first_name" 
                         value={formData.first_name}
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <label><span>Last name </span></label>
+                    <label className="label"><span>Last name </span></label>
                     <input 
                         id="lastname-signup"
                         placeholder="Last name"
+                        className="input"
                         name="last_name" 
                         value={formData.last_name}
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <label><span>Username </span></label>
+                    <label className="label"><span>Username </span></label>
                     <input 
                         id="username-signup"
                         placeholder="username"
+                        className="input"
                         name="username" 
                         value={formData.username}
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <label><span>Password </span></label>
+                    <label className="label"><span>Password </span></label>
                     <input 
                         id="password-signup" 
                         placeholder="password"
+                        className="input"
                         type="password"
                         name="password" 
                         value={formData.password}
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <label><span>Password Confirmation </span></label>
+                    <label className="label"><span>Password Confirmation </span></label>
                     <input 
                         id="password-confirmation-signup" 
                         placeholder="Password confirmation"
+                        className="input"
                         type="password"
                         name="password_confirmation" 
                         value={formData.password_confirmation}

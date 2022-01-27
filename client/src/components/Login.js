@@ -42,30 +42,32 @@ function Login({setIsLoggedIn}) {
     }
 
     return (
-        <div className="form">
-            <h1 className='form-'>Login</h1>
+        <div className="form outside">
+            <h1 className='form-title'>Login</h1>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <label><span>Username </span></label>
+                <form className="inside" onSubmit={handleSubmit}><br/>
+                    <label className='label'><span>Username </span></label>
                     <input 
                         id="username-login" 
                         placeholder="Username"
+                        className="input"
                         name="username" 
                         value={formData.username}
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <label><span>Password </span></label>
+                    <label className='label'><span>Password </span></label>
                     <input 
                         id="password-login"
                         placeholder="Password"
+                        className="input"
                         type="password"
                         name="password"
                         value={formData.password}    
                         onChange={handleChange}
                     />
                     <br /><br />
-                    <button type="submit" className="bttn2">Login</button>
+                    <button type="submit" className="bttn2">Login</button><br/>
                 </form>
             </div>
         </div>
