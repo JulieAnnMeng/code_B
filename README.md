@@ -4,7 +4,7 @@
 
 ## Introduction to the project
 
-This is a a simple web project, built to showcase Julie Meng's programming capibilities. It uses React.js front-end and Ruby on Rails back-end. PostgreSQL is also used along with BCrypt for authentication. The application has been deployed onto Heroku and is available here: https://code--b.herokuapp.com/
+This is a a simple web project, built to showcase Julie Meng's programming capabilities. It uses React.js front-end and Ruby on Rails back-end. PostgreSQL is also used along with BCrypt for authentication. The application has been deployed onto Heroku and is available here: https://code--b.herokuapp.com/
 
 ## Installation
 
