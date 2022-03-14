@@ -123,7 +123,7 @@ function UserPage({user, getDiscussions, getUser}) {
             default:
                 console.log(type)
                 console.log(id)
-                debugger;
+                // debugger;
         }
     }
 

@@ -6,7 +6,8 @@ function Login({setIsLoggedIn}) {
     let history = useHistory();
 
     const blankFormData = {username: "", password: ""}
-    const [formData, setFormData] = useState(blankFormData);    
+    const [formData, setFormData] = useState(blankFormData);   
+    const [error, setError] = useState(); 
 
     function handleChange(e){
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,14 +36,16 @@ function Login({setIsLoggedIn}) {
             });
           } 
           else {
-            r.json().then((err) => console.log("Log in incorrect: ", err.error));
+            r.json().then((err) => setError(err.error.login));
           }
         })
-        .catch(error => console.log("Log in incorrect: ", error))
+        .catch(error => console.log(error))
     }
+
 
     return (
         <div className="form outside">
+            <p className="alert">{error}</p>
             <h1 className='form-title'>Login</h1>
             <div>
                 <form className="inside" onSubmit={handleSubmit}><br/>
@@ -54,6 +57,7 @@ function Login({setIsLoggedIn}) {
                         name="username" 
                         value={formData.username}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <label className='label'><span>Password </span></label>
@@ -65,6 +69,7 @@ function Login({setIsLoggedIn}) {
                         name="password"
                         value={formData.password}    
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <button type="submit" className="bttn2">Login</button><br/>

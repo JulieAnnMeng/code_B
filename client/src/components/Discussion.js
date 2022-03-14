@@ -72,7 +72,7 @@ function Discussion({user, board, getUser, getDiscussions, addInterest}) {
         if(user) {
             let notAlreadyInterested = user.userPage.interests.find(interest => interest.discussion_id === parseInt(id)) ? false : true;
             if (notAlreadyInterested){
-                debugger;
+                // debugger;
                 interestStar = true;
                 let user_id = user.id;
                 let discussion_id = id;

@@ -458,3 +458,13 @@ div.edit-password {
   display:none;
   background: #66B2B2;
 }
+
+.alert {
+  text-align: center;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  background: lightgrey;
+  border-radius: 25px;
+  line-height: 50px;
+}

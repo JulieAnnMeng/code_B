@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   # route to test config
   get "/me" , to: "sessions#show"
   delete "/me", to: "sessions#destroy"
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
   delete "/comments/:id", to: "comments#destroy"
   patch "/comments/:id", to: "comments#update"
   post "/comments", to: "comments#create"
+
+  get "/messages/:id", to: "messages#show"
+  patch "/messages/:id", to: "messages#update"
   
   get '*path',
     to: 'fallback#index',

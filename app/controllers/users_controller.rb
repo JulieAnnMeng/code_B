@@ -2,11 +2,16 @@ class UsersController < ApplicationController
     skip_before_action :authorize, only: [:create, :show, :update]
 
     def create
-        user = User.create(user_params)
-        if session[:user_id] = user.id
+        validate_username()
+        if @username_taken == nil
+            user = User.create(user_params)
+            if session[:user_id] = user.id
             render json: user, status: :created
+            else
+                render json: {error: user.errors}, status: :unauthorized
+            end
         else
-            render json: {errors: user.errors}, status: :unauthorized
+            render json: { error: "Username already taken" }, status: :unprocessable_entity
         end
     end
 
@@ -30,6 +35,13 @@ class UsersController < ApplicationController
                         render json: {errors: user.errors}, status: :unauthorized
                     end
                 end
+            elsif params[:username]
+                validate_username()
+                if @username_taken[:id] == user.id
+                    render json: user, status: 200
+                else
+                    render json: {error: "Username already taken"}, status: :unprocessable_entity
+                end
             else
                 if user.update(user_params)
                     render json: user, status: :created
@@ -49,5 +61,9 @@ class UsersController < ApplicationController
     private
     def user_params
         params.permit(:id, :user, :first_name, :last_name, :username, :password, :password_confirmation, :new_password, :new_password_confirmation, :icon)
+    end
+
+    def validate_username
+        @username_taken = User.find_by username: params[:username]
     end
 end

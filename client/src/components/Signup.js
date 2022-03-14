@@ -7,6 +7,7 @@ function Signup({setIsLoggedIn}) {
 
     const blankFormData = {first_name: "", last_name: "", username: "", password: "", password_confirmation: ""}
     const [formData, setFormData] = useState(blankFormData);    
+    const [error, setError] = useState();
 
     function handleChange(e){
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,14 +36,15 @@ function Signup({setIsLoggedIn}) {
             });
           } 
           else {
-            r.json().then((err) => console.log("Please fill out all inputs: ", err.errors));
+            r.json().then((err) => setError(err.error));
           }
         })
-        .catch(error => console.log("Log in incorrect: ", error))
+        .catch(error => console.log(error))
     }
 
     return (
         <div className="form outside">
+            <p className="alert">{error}</p>
             <h1 className='form-title'>Signup</h1>
             <div>
                 <form className="inside"onSubmit={handleSubmit}>
@@ -54,6 +56,7 @@ function Signup({setIsLoggedIn}) {
                         name="first_name" 
                         value={formData.first_name}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <label className="label"><span>Last name </span></label>
@@ -64,6 +67,7 @@ function Signup({setIsLoggedIn}) {
                         name="last_name" 
                         value={formData.last_name}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <label className="label"><span>Username </span></label>
@@ -74,6 +78,7 @@ function Signup({setIsLoggedIn}) {
                         name="username" 
                         value={formData.username}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <label className="label"><span>Password </span></label>
@@ -85,6 +90,7 @@ function Signup({setIsLoggedIn}) {
                         name="password" 
                         value={formData.password}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <label className="label"><span>Password Confirmation </span></label>
@@ -96,6 +102,7 @@ function Signup({setIsLoggedIn}) {
                         name="password_confirmation" 
                         value={formData.password_confirmation}
                         onChange={handleChange}
+                        required
                     />
                     <br /><br />
                     <button type="submit" className="bttn2">Signup</button>
